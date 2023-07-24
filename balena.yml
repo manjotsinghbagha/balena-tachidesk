@@ -1,0 +1,26 @@
+name: tachidesk-server
+type: sw.application
+joinable: false
+description: >-
+  A free and open source manga reader server that runs extensions built for Tachiyomi.
+Tachidesk is an independent Tachiyomi compatible software and is not a Fork of Tachiyomi.
+Tachidesk-Server is as multi-platform as you can get. Any platform that runs java and/or has a modern browser can run it. This includes Windows, Linux, macOS, chrome OS, etc. Follow Downloading and Running the app for installation instructions.
+Ability to sync with Tachiyomi is a planned feature, for more info look here.
+post-provisioning: >-
+  ## Usage instructions
+
+  Allow a few minutes for your device to download the app. Once it's completed,  the Tachidesk page should be accessible on the public device URL.
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/manjotsinghbagha/balena-tachidesk'
+data:
+  supportedDeviceTypes:
+    - generic-x86-64-ext
+    - generic-aarch64
+    - fincm3
+    - beaglebone-black
+    - jetson-tx2
+    - raspberrypi4-64
+version: 0.1
