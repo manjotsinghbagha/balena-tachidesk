@@ -80,4 +80,12 @@ sed -i -r "s/server.flareSolverrTimeout = ([0-9]+|[a-zA-Z]+)( #)?/server.flareSo
 sed -i -r "s/server.flareSolverrSessionName = \"(.*?)\"( #)?/server.flareSolverrSessionName = \"${FLARESOLVERR_SESSION_NAME:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.flareSolverrSessionTtl = ([0-9]+|[a-zA-Z]+)( #)?/server.flareSolverrSessionTtl = ${FLARESOLVERR_SESSION_TTL:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
+# opds
+sed -i -r "s/server.opdsItemsPerPage = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsItemsPerPage = ${OPDS_ITEMS_PER_PAGE:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.opdsEnablePageReadProgress = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsEnablePageReadProgress = ${OPDS_ENABLE_PAGE_READ_PROGRESS:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.opdsMarkAsReadOnDownload = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsMarkAsReadOnDownload = ${OPDS_MARK_AS_READ_ON_DOWNLOAD:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.opdsShowOnlyUnreadChapters = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsShowOnlyUnreadChapters = ${OPDS_SHOW_ONLY_UNREAD_CHAPTERS:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.opdsShowOnlyDownloadedChapters = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsShowOnlyDownloadedChapters = ${OPDS_SHOW_ONLY_DOWNLOADED_CHAPTERS:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.opdsChapterSortOrder = \"(.*?)\"( #)?/server.opdsChapterSortOrder = \"${OPDS_CHAPTER_SORT_ORDER:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+
 exec java -Duser.home=/home/suwayomi -jar "/home/suwayomi/startup/tachidesk_latest.jar";
