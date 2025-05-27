@@ -81,6 +81,7 @@ sed -i -r "s/server.flareSolverrSessionName = \"(.*?)\"( #)?/server.flareSolverr
 sed -i -r "s/server.flareSolverrSessionTtl = ([0-9]+|[a-zA-Z]+)( #)?/server.flareSolverrSessionTtl = ${FLARESOLVERR_SESSION_TTL:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
 # opds
+sed -i -r "s/server.opdsUseBinaryFileSizes = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsUseBinaryFileSizes = ${OPDS_USE_BINARY_FILE_SIZES:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.opdsItemsPerPage = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsItemsPerPage = ${OPDS_ITEMS_PER_PAGE:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.opdsEnablePageReadProgress = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsEnablePageReadProgress = ${OPDS_ENABLE_PAGE_READ_PROGRESS:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.opdsMarkAsReadOnDownload = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsMarkAsReadOnDownload = ${OPDS_MARK_AS_READ_ON_DOWNLOAD:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
