@@ -60,6 +60,13 @@ sed -i -r "s/server.globalUpdateInterval = ([0-9]+|[a-zA-Z]+)( #)?/server.global
 sed -i -r "s/server.updateMangas = ([0-9]+|[a-zA-Z]+)( #)?/server.updateMangas = ${UPDATE_MANGA_INFO:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
 # Authentication
+AUTH_MODE_VAL="${AUTH_MODE:-$( [ "$BASIC_AUTH_ENABLED" = "true" ] && echo 'basic_auth' )}"
+AUTH_USERNAME_VAL="${AUTH_USERNAME:-$BASIC_AUTH_USERNAME}"
+AUTH_PASSWORD_VAL="${AUTH_PASSWORD:-$BASIC_AUTH_PASSWORD}"
+sed -i -r "s/server.authMode = \"(.*?)\"( #)?/server.authMode = ${AUTH_MODE_VAL:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.authUsername = \"(.*?)\"( #)?/server.authUsername = \"${AUTH_USERNAME_VAL:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.authPassword = \"(.*?)\"( #)?/server.authPassword = \"${AUTH_PASSWORD_VAL:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+
 sed -i -r "s/server.basicAuthEnabled = ([0-9]+|[a-zA-Z]+)( #)?/server.basicAuthEnabled = ${BASIC_AUTH_ENABLED:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.basicAuthUsername = \"(.*?)\"( #)?/server.basicAuthUsername = \"${BASIC_AUTH_USERNAME:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.basicAuthPassword = \"(.*?)\"( #)?/server.basicAuthPassword = \"${BASIC_AUTH_PASSWORD:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf

@@ -117,11 +117,15 @@ jobs:
             -e SOCKS_PROXY_ENABLED=false \
             -e SOCKS_PROXY_HOST=socks_host \
             -e SOCKS_PROXY_PORT=socks_port \
+            -e DOWNLOAD_AS_CBZ=true \
+            -e AUTH_MODE=basic_auth \
+            -e AUTH_USERNAME=manga \
+            -e AUTH_PASSWORD=hello123 \
+            -e DEBUG=true \
             -e WEB_UI_ENABLED=true \
             -e WEB_UI_FLAVOR=WebUI \
             -e WEB_UI_CHANNEL=preview \
             -e WEB_UI_UPDATE_INTERVAL=2 \
-            -e DOWNLOAD_AS_CBZ=true \
             -e AUTO_DOWNLOAD_CHAPTERS=true \
             -e AUTO_DOWNLOAD_EXCLUDE_UNREAD=false \
             -e AUTO_DOWNLOAD_NEW_CHAPTERS_LIMIT=5 \
@@ -133,10 +137,6 @@ jobs:
             -e UPDATE_EXCLUDE_COMPLETED=false \
             -e UPDATE_INTERVAL=30 \
             -e UPDATE_MANGA_INFO=true \
-            -e BASIC_AUTH_ENABLED=true \
-            -e BASIC_AUTH_USERNAME=manga \
-            -e BASIC_AUTH_PASSWORD=hello123 \
-            -e DEBUG=true \
             -e BACKUP_TIME=13:37 \
             -e BACKUP_INTERVAL=2 \
             -e BACKUP_TTL=31 \
@@ -145,6 +145,13 @@ jobs:
             -e FLARESOLVERR_TIMEOUT=30 \
             -e FLARESOLVERR_SESSION_NAME=session-name \
             -e FLARESOLVERR_SESSION_TTL=120 \
+            -e OPDS_USE_BINARY_FILE_SIZES=true \
+            -e OPDS_ITEMS_PER_PAGE=51 \
+            -e OPDS_ENABLE_PAGE_READ_PROGRESS=false \
+            -e OPDS_MARK_AS_READ_ON_DOWNLOAD=true \
+            -e OPDS_SHOW_ONLY_UNREAD_CHAPTERS=true \
+            -e OPDS_SHOW_ONLY_DOWNLOADED_CHAPTERS=true \
+            -e OPDS_CHAPTER_SORT_ORDER=ASC \
             --name=suwayomi_test \
             ${{ env.test_image_tag }}
           sleep 15
