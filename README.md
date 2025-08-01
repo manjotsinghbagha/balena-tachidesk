@@ -6,7 +6,7 @@
 
 Run [Suwayomi-Server](https://github.com/Suwayomi/Suwayomi-Server) inside docker container as non-root user. The server will be running on http://localhost:4567 open this url in your browser.
 
-Docker Releases - https://github.com/Suwayomi/Suwayomi-Server-docker/pkgs/container/tachidesk
+Docker Releases - https://github.com/Suwayomi/Suwayomi-Server-docker/pkgs/container/suwayomi-server
 
 Dockerfile - https://github.com/Suwayomi/Suwayomi-Server-docker
 
