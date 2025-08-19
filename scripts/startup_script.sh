@@ -28,8 +28,11 @@ sed -i -r "s/server.port = ([0-9]+|[a-zA-Z]+)( #)?/server.port = ${BIND_PORT:-\1
 
 # Socks5 proxy
 sed -i -r "s/server.socksProxyEnabled = ([0-9]+|[a-zA-Z]+)( #)?/server.socksProxyEnabled = ${SOCKS_PROXY_ENABLED:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.socksProxyVersion = ([0-9]+|[a-zA-Z]+)( #)?/server.socksProxyVersion = ${SOCKS_PROXY_VERSION:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.socksProxyHost = \"(.*?)\"( #)?/server.socksProxyHost = \"${SOCKS_PROXY_HOST:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.socksProxyPort = \"(.*?)\"( #)?/server.socksProxyPort = \"${SOCKS_PROXY_PORT:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.socksProxyUsername = \"(.*?)\"( #)?/server.socksProxyUsername = \"${SOCKS_PROXY_USERNAME:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.socksProxyPassword = \"(.*?)\"( #)?/server.socksProxyPassword = \"${SOCKS_PROXY_PASSWORD:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
 # webUI
 sed -i -r "s/server.webUIEnabled = ([0-9]+|[a-zA-Z]+)( #)?/server.webUIEnabled = ${WEB_UI_ENABLED:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
@@ -76,6 +79,9 @@ sed -i -r "s/server.basicAuthPassword = \"(.*?)\"( #)?/server.basicAuthPassword 
 
 # misc
 sed -i -r "s/server.debugLogsEnabled = ([0-9]+|[a-zA-Z]+)( #)?/server.debugLogsEnabled = ${DEBUG:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.maxLogFiles = ([0-9]+|[a-zA-Z]+)( #)?/server.maxLogFiles = ${MAX_LOG_FILES:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.maxLogFileSize = \"(.*?)\"( #)?/server.maxLogFileSize = \"${MAX_LOG_FILE_SIZE:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.maxLogFolderSize = \"(.*?)\"( #)?/server.maxLogFolderSize = \"${MAX_LOG_FOLDER_SIZE:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
 # backup
 sed -i -r "s/server.backupTime = \"(.*?)\"( #)?/server.backupTime = \"${BACKUP_TIME:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
@@ -89,6 +95,7 @@ sed -i -r "s|server.flareSolverrUrl = \"(.*?)\"( #)?|server.flareSolverrUrl = \"
 sed -i -r "s/server.flareSolverrTimeout = ([0-9]+|[a-zA-Z]+)( #)?/server.flareSolverrTimeout = ${FLARESOLVERR_TIMEOUT:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.flareSolverrSessionName = \"(.*?)\"( #)?/server.flareSolverrSessionName = \"${FLARESOLVERR_SESSION_NAME:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.flareSolverrSessionTtl = ([0-9]+|[a-zA-Z]+)( #)?/server.flareSolverrSessionTtl = ${FLARESOLVERR_SESSION_TTL:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.flareSolverrAsResponseFallback = ([0-9]+|[a-zA-Z]+)( #)?/server.flareSolverrAsResponseFallback = ${FLARESOLVERR_RESPONSE_AS_FALLBACK:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
 # opds
 sed -i -r "s/server.opdsUseBinaryFileSizes = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsUseBinaryFileSizes = ${OPDS_USE_BINARY_FILE_SIZES:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
@@ -98,6 +105,15 @@ sed -i -r "s/server.opdsMarkAsReadOnDownload = ([0-9]+|[a-zA-Z]+)( #)?/server.op
 sed -i -r "s/server.opdsShowOnlyUnreadChapters = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsShowOnlyUnreadChapters = ${OPDS_SHOW_ONLY_UNREAD_CHAPTERS:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.opdsShowOnlyDownloadedChapters = ([0-9]+|[a-zA-Z]+)( #)?/server.opdsShowOnlyDownloadedChapters = ${OPDS_SHOW_ONLY_DOWNLOADED_CHAPTERS:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.opdsChapterSortOrder = \"(.*?)\"( #)?/server.opdsChapterSortOrder = \"${OPDS_CHAPTER_SORT_ORDER:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+
+# koreader
+sed -i -r "s/server.koreaderSyncServerUrl = \"(.*?)\"( #)?|server.koreaderSyncServerUrl = ${KOREADER_SYNC_SERVER_URL:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncUsername = \"(.*?)\"( #)?/server.koreaderSyncUsername = ${KOREADER_SYNC_USERNAME:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncUserkey = \"(.*?)\"( #)?/server.koreaderSyncUserkey = ${KOREADER_SYNC_USERKEY:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncDeviceId = \"(.*?)\"( #)?/server.koreaderSyncDeviceId = ${KOREADER_SYNC_DEVICE_ID:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncChecksumMethod = \"(.*?)\"( #)?/server.koreaderSyncChecksumMethod = ${KOREADER_SYNC_CHECKSUM_METHOD:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncStrategy = \"(.*?)\"( #)?/server.koreaderSyncStrategy = ${KOREADER_SYNC_STRATEGY:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncPercentageTolerance = ([0-9\.]+|[a-zA-Z]+)?/server.koreaderSyncPercentageTolerance = \"${KOREADER_SYNC_PERCENTAGE_TOLERANCE:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
 rm -rf /home/suwayomi/.local/share/Tachidesk/cache/kcef/Singleton*
 
