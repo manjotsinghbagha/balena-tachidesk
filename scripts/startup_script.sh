@@ -108,14 +108,12 @@ sed -i -r "s/server.opdsChapterSortOrder = \"(.*?)\"( #)?/server.opdsChapterSort
 
 # koreader
 sed -i -r "s|server.koreaderSyncServerUrl = \"(.*?)\"( #)?|server.koreaderSyncServerUrl = \"${KOREADER_SYNC_SERVER_URL:-\1}\" #|" /home/suwayomi/.local/share/Tachidesk/server.conf
-sed -i -r "s/server.koreaderSyncUsername = \"(.*?)\"( #)?/server.koreaderSyncUsername = ${KOREADER_SYNC_USERNAME:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
-sed -i -r "s/server.koreaderSyncUserkey = \"(.*?)\"( #)?/server.koreaderSyncUserkey = ${KOREADER_SYNC_USERKEY:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
-sed -i -r "s/server.koreaderSyncDeviceId = \"(.*?)\"( #)?/server.koreaderSyncDeviceId = ${KOREADER_SYNC_DEVICE_ID:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
-sed -i -r "s/server.koreaderSyncChecksumMethod = \"(.*?)\"( #)?/server.koreaderSyncChecksumMethod = ${KOREADER_SYNC_CHECKSUM_METHOD:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
-sed -i -r "s/server.koreaderSyncStrategy = \"(.*?)\"( #)?/server.koreaderSyncStrategy = ${KOREADER_SYNC_STRATEGY:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncUsername = \"(.*?)\"( #)?/server.koreaderSyncUsername = \"${KOREADER_SYNC_USERNAME:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncUserkey = \"(.*?)\"( #)?/server.koreaderSyncUserkey = \"${KOREADER_SYNC_USERKEY:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncDeviceId = \"(.*?)\"( #)?/server.koreaderSyncDeviceId = \"${KOREADER_SYNC_DEVICE_ID:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncChecksumMethod = \"(.*?)\"( #)?/server.koreaderSyncChecksumMethod = \"${KOREADER_SYNC_CHECKSUM_METHOD:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncStrategy = \"(.*?)\"( #)?/server.koreaderSyncStrategy = \"${KOREADER_SYNC_STRATEGY:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.koreaderSyncPercentageTolerance = ([0-9\.]+|[a-zA-Z]+)?/server.koreaderSyncPercentageTolerance = \"${KOREADER_SYNC_PERCENTAGE_TOLERANCE:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
-
-cat /home/suwayomi/.local/share/Tachidesk/server.conf
 
 rm -rf /home/suwayomi/.local/share/Tachidesk/cache/kcef/Singleton*
 

@@ -115,13 +115,19 @@ jobs:
             -e BIND_IP=0.0.0.0 \
             -e BIND_PORT=4567 \
             -e SOCKS_PROXY_ENABLED=false \
+            -e SOCKS_PROXY_VERSION=4 \
             -e SOCKS_PROXY_HOST=socks_host \
             -e SOCKS_PROXY_PORT=socks_port \
+            -e SOCKS_PROXY_USERNAME=socks_user \
+            -e SOCKS_PROXY_PASSWORD=socks_pass \
             -e DOWNLOAD_AS_CBZ=true \
             -e AUTH_MODE=basic_auth \
             -e AUTH_USERNAME=manga \
             -e AUTH_PASSWORD=hello123 \
             -e DEBUG=true \
+            -e MAX_LOG_FILES=1000 \
+            -e MAX_LOG_FILE_SIZE=1000mb \
+            -e MAX_LOG_FOLDER_SIZE=1000mb \
             -e WEB_UI_ENABLED=true \
             -e WEB_UI_FLAVOR=WebUI \
             -e WEB_UI_CHANNEL=preview \
@@ -146,6 +152,7 @@ jobs:
             -e FLARESOLVERR_TIMEOUT=30 \
             -e FLARESOLVERR_SESSION_NAME=session-name \
             -e FLARESOLVERR_SESSION_TTL=120 \
+            -e FLARESOLVERR_RESPONSE_AS_FALLBACK=true \
             -e OPDS_USE_BINARY_FILE_SIZES=true \
             -e OPDS_ITEMS_PER_PAGE=51 \
             -e OPDS_ENABLE_PAGE_READ_PROGRESS=false \
@@ -153,6 +160,13 @@ jobs:
             -e OPDS_SHOW_ONLY_UNREAD_CHAPTERS=true \
             -e OPDS_SHOW_ONLY_DOWNLOADED_CHAPTERS=true \
             -e OPDS_CHAPTER_SORT_ORDER=ASC \
+            -e KOREADER_SYNC_SERVER_URL=http://koreader:17200 \
+            -e KOREADER_SYNC_USERNAME=manga \
+            -e KOREADER_SYNC_USERKEY=hello123 \
+            -e KOREADER_SYNC_DEVICE_ID=100 \
+            -e KOREADER_SYNC_CHECKSUM_METHOD=filename \
+            -e KOREADER_SYNC_STRATEGY=send \
+            -e KOREADER_SYNC_PERCENTAGE_TOLERANCE=0.001 \
             --name=suwayomi_test \
             ${{ env.test_image_tag }}
           sleep 15
