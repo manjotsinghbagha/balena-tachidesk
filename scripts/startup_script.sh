@@ -115,6 +115,8 @@ sed -i -r "s/server.koreaderSyncChecksumMethod = \"(.*?)\"( #)?/server.koreaderS
 sed -i -r "s/server.koreaderSyncStrategy = \"(.*?)\"( #)?/server.koreaderSyncStrategy = ${KOREADER_SYNC_STRATEGY:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.koreaderSyncPercentageTolerance = ([0-9\.]+|[a-zA-Z]+)?/server.koreaderSyncPercentageTolerance = \"${KOREADER_SYNC_PERCENTAGE_TOLERANCE:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
+cat /home/suwayomi/.local/share/Tachidesk/server.conf
+
 rm -rf /home/suwayomi/.local/share/Tachidesk/cache/kcef/Singleton*
 
 if command -v Xvfb >/dev/null; then
