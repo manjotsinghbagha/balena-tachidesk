@@ -124,6 +124,9 @@ jobs:
             -e AUTH_MODE=basic_auth \
             -e AUTH_USERNAME=manga \
             -e AUTH_PASSWORD=hello123 \
+            -e JWT_AUDIENCE=suwayomi-server-api2 \
+            -e JWT_TOKEN_EXPIRY=10m \
+            -e JWT_REFRESH_EXPIRY=30d \
             -e DEBUG=true \
             -e MAX_LOG_FILES=1000 \
             -e MAX_LOG_FILE_SIZE=1000mb \
