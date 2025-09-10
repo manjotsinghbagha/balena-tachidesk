@@ -115,8 +115,9 @@ sed -i -r "s/server.koreaderSyncUsername = \"(.*?)\"( #)?/server.koreaderSyncUse
 sed -i -r "s/server.koreaderSyncUserkey = \"(.*?)\"( #)?/server.koreaderSyncUserkey = \"${KOREADER_SYNC_USERKEY:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.koreaderSyncDeviceId = \"(.*?)\"( #)?/server.koreaderSyncDeviceId = \"${KOREADER_SYNC_DEVICE_ID:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.koreaderSyncChecksumMethod = \"*([a-zA-Z0-9_]+)\"*( #)?/server.koreaderSyncChecksumMethod = ${KOREADER_SYNC_CHECKSUM_METHOD:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
-sed -i -r "s/server.koreaderSyncStrategy = \"*([a-zA-Z0-9_]+)\"*( #)?/server.koreaderSyncStrategy = ${KOREADER_SYNC_STRATEGY:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.koreaderSyncPercentageTolerance = ([-0-9\.Ee]+)?( #)/server.koreaderSyncPercentageTolerance = ${KOREADER_SYNC_PERCENTAGE_TOLERANCE:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncStrategyForward = \"*([a-zA-Z0-9_]+)\"*( #)?/server.koreaderSyncStrategyForward = ${KOREADER_SYNC_STRATEGY_FORWARD:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.koreaderSyncStrategyBackward = \"*([a-zA-Z0-9_]+)\"*( #)?/server.koreaderSyncStrategyBackward = ${KOREADER_SYNC_STRATEGY_BACKWARD:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
 # database
 sed -i -r "s/server.databaseType = \"*([a-zA-Z0-9_]+)\"*( #)?/server.databaseType = ${DATABASE_TYPE:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
