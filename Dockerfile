@@ -4,10 +4,10 @@ ARG TACHIDESK_ABORT_HANDLER_DOWNLOAD_URL
 
 # build abort handler
 RUN if [ -n "$TACHIDESK_ABORT_HANDLER_DOWNLOAD_URL" ]; then \
+      apt-get update && \
+      apt-get -y install -y curl gcc && \
       cd /tmp && \
       curl "$TACHIDESK_ABORT_HANDLER_DOWNLOAD_URL" -O && \
-      apt-get update && \
-      apt-get -y install gcc && \
       gcc -fPIC -I$JAVA_HOME/include -I$JAVA_HOME/include/linux -shared catch_abort.c -lpthread -o /opt/catch_abort.so && \
       rm -f catch_abort.c && \
       apt-get -y purge gcc --auto-remove && \
@@ -25,7 +25,7 @@ ARG TACHIDESK_KCEF_RELEASE_URL
 # install unzip to unzip the server-reference.conf from the jar
 # Install tini for a tiny init system (handles orphan processes for graceful restart)
 RUN apt-get update && \
-    apt-get -y install -y gettext-base unzip tini ca-certificates p11-kit && \
+    apt-get -y install -y curl gettext-base unzip tini ca-certificates p11-kit && \
     /usr/bin/p11-kit extract --format=java-cacerts --filter=certificates --overwrite --purpose server-auth $JAVA_HOME/lib/security/cacerts && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
