@@ -9,6 +9,7 @@ services:
       - DATABASE_URL=postgresql://postgresql:5432/${POSTGRES_DB}
       - DATABASE_USERNAME=${POSTGRES_USER}
       - DATABASE_PASSWORD=${POSTGRES_PASSWORD}
+      # - USE_HIKARI_CONNECTION_POOL=false # Hikari Connection Pool can cause issues with some installations, but it is much more performant.
       # Comment these out if you do not use the flaresolverr container at the bottom of this file
       - FLARESOLVERR_ENABLED=true
       - FLARESOLVERR_URL=http://flaresolverr:8191
