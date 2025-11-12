@@ -49,6 +49,9 @@ sed -i -r "s/server.autoDownloadIgnoreReUploads = ([0-9]+|[a-zA-Z]+)( #)?/server
 if [ -n "$DOWNLOAD_CONVERSIONS" ]; then
     perl -0777 -i -pe 's/server\.downloadConversions = ({[^#]*?}}?)/server.downloadConversions = $ENV{DOWNLOAD_CONVERSIONS}/gs' /home/suwayomi/.local/share/Tachidesk/server.conf
 fi
+if [ -n "$SERVE_CONVERSIONS" ]; then
+    perl -0777 -i -pe 's/server\.serveConversions = ({[^#]*?}}?)/server.serveConversions = $ENV{SERVE_CONVERSIONS}/gs' /home/suwayomi/.local/share/Tachidesk/server.conf
+fi
 
 # extension repos
 if [ -n "$EXTENSION_REPOS" ]; then
@@ -132,6 +135,7 @@ sed -i -r "s/server.databaseType = \"*([a-zA-Z0-9_]+)\"*( #)?/server.databaseTyp
 sed -i -r "s|server.databaseUrl = \"(.*?)\"( #)?|server.databaseUrl = \"${DATABASE_URL:-\1}\" #|" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.databaseUsername = \"(.*?)\"( #)?/server.databaseUsername = \"${DATABASE_USERNAME:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 sed -i -r "s/server.databasePassword = \"(.*?)\"( #)?/server.databasePassword = \"${DATABASE_PASSWORD:-\1}\" #/" /home/suwayomi/.local/share/Tachidesk/server.conf
+sed -i -r "s/server.useHikariConnectionPool = ([0-9]+|[a-zA-Z]+)( #)?/server.useHikariConnectionPool = ${USE_HIKARI_CONNECTION_POOL:-\1} #/" /home/suwayomi/.local/share/Tachidesk/server.conf
 
 rm -rf /home/suwayomi/.local/share/Tachidesk/cache/kcef/Singleton*
 

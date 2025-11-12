@@ -140,6 +140,7 @@ jobs:
             -e AUTO_DOWNLOAD_NEW_CHAPTERS_LIMIT=5 \
             -e AUTO_DOWNLOAD_IGNORE_REUPLOADS=false \
             -e DOWNLOAD_CONVERSIONS="{ \"image/filetype\" = { target = \"image/filetype\" }, \"image/filetype\" = { target = \"image/filetype\" } }" \
+            -e SERVE_CONVERSIONS="{ \"image/filetype\" = { target = \"image/filetype\" }, \"image/filetype\" = { target = \"image/filetype\" } }" \
             -e EXTENSION_REPOS=[\"http://github.com/orginazation-name/repo-name\",\"http://github.com/orginazation-name-2/repo-name-2\"] \
             -e MAX_SOURCES_IN_PARALLEL=12 \
             -e UPDATE_EXCLUDE_UNREAD=false \
@@ -183,6 +184,7 @@ jobs:
             -e DATABASE_URL=postgresql://localhost:5432/suwayomi \
             -e DATABASE_USERNAME=manga \
             -e DATABASE_PASSWORD=hello123 \
+            -e USE_HIKARI_CONNECTION_POOL=false \
             --name=suwayomi_test \
             ${{ env.test_image_tag }}
           sleep 15
